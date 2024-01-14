@@ -4,13 +4,13 @@ import javax.swing.*;
 
 public class entry extends JFrame implements ActionListener{
     
-    ImageIcon background = new ImageIcon("Gam.png");
+    ImageIcon background = new ImageIcon("game stack.png");
     ImageIcon buttonBackground = new ImageIcon("buttomBack.png");
     JButton ttt = new JButton("TIC TAC TOE");
     JButton snake = new JButton("SNAKE GAME");
     JLabel panel = new JLabel();
     entry(){
-        ttt.setBounds(561,399,414,94);
+        ttt.setBounds(130,474,259,72);
         ttt.setIcon(buttonBackground);
         ttt.addActionListener(this);
         ttt.setFocusable(false);
@@ -20,7 +20,7 @@ public class entry extends JFrame implements ActionListener{
         ttt.setBorder(BorderFactory.createLineBorder(Color.white,2));
         ttt.setFont(new Font("sans",Font.BOLD,20));
         
-        snake.setBounds(561,526,414,94);
+        snake.setBounds(130,595,259,72);
         snake.setIcon(buttonBackground);
         snake.addActionListener(this);
         snake.setFocusable(false);
