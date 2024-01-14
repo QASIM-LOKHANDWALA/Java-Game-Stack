@@ -8,7 +8,7 @@ public class Game extends JFrame{
 
         GamePanel panel = new GamePanel();
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.setTitle("Snake");
         this.setResizable(false);
         this.add(panel);

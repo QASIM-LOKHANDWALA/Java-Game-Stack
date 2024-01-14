@@ -29,7 +29,7 @@ public class tick_tack_toe implements ActionListener{
         title.setBounds(0,0,800,100);
         title.add(text);
 
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         f.setSize(800,800);
         f.getContentPane().setBackground(new Color(50,50,50));
         f.setLayout(new BorderLayout());
