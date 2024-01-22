@@ -8,9 +8,10 @@ public class entry extends JFrame implements ActionListener{
     ImageIcon buttonBackground = new ImageIcon("buttomBack.png");
     JButton ttt = new JButton("TIC TAC TOE");
     JButton snake = new JButton("SNAKE GAME");
+    JButton rpc = new JButton("ROCK PAPER SCISSOR");
     JLabel panel = new JLabel();
     entry(){
-        ttt.setBounds(130,474,259,72);
+        ttt.setBounds(130,474,280,72);
         ttt.setIcon(buttonBackground);
         ttt.addActionListener(this);
         ttt.setFocusable(false);
@@ -20,7 +21,7 @@ public class entry extends JFrame implements ActionListener{
         ttt.setBorder(BorderFactory.createLineBorder(Color.white,2));
         ttt.setFont(new Font("sans",Font.BOLD,20));
         
-        snake.setBounds(130,595,259,72);
+        snake.setBounds(130,552,280,72);
         snake.setIcon(buttonBackground);
         snake.addActionListener(this);
         snake.setFocusable(false);
@@ -29,6 +30,16 @@ public class entry extends JFrame implements ActionListener{
         snake.setForeground(Color.YELLOW);
         snake.setBorder(BorderFactory.createLineBorder(Color.white,2));
         snake.setFont(new Font("sans",Font.BOLD,20));
+
+        rpc.setBounds(130,630,280,72);
+        rpc.setIcon(buttonBackground);
+        rpc.addActionListener(this);
+        rpc.setFocusable(false);
+        rpc.setHorizontalTextPosition(JButton.CENTER);
+        rpc.setVerticalTextPosition(JButton.CENTER);
+        rpc.setForeground(Color.YELLOW);
+        rpc.setBorder(BorderFactory.createLineBorder(Color.white,2));
+        rpc.setFont(new Font("sans",Font.BOLD,20));
 
         panel.setSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
         panel.setIcon(background);
@@ -40,6 +51,7 @@ public class entry extends JFrame implements ActionListener{
         this.setResizable(false);
         this.add(ttt);
         this.add(snake);
+        this.add(rpc);
         this.add(panel);
         this.setVisible(true);
         
@@ -55,12 +67,19 @@ public class entry extends JFrame implements ActionListener{
                 new entry();
             }
             
-        }
-        if(e.getSource()==snake){
+        }else if(e.getSource()==snake){
             String mes = "1.IT IS A SINGLE PLAYER GAME\n2.USE ARROW KEYS TO TURN\nDO YOU WNAT TO CONTINUE?";
             int a = JOptionPane.showConfirmDialog(this,mes,"INSTRUCION",JOptionPane.YES_OPTION);
             if(a==JOptionPane.YES_OPTION){
                 new Game();
+            }else{
+                new entry();
+            }
+        }else if(e.getSource()==rpc){
+            String mes = "1.IT IS A SINGLE PLAYER GAME\n2.FIRST TO SCORE 5 POINTS WINS\nDO YOU WNAT TO CONTINUE?";
+            int a = JOptionPane.showConfirmDialog(this,mes,"INSTRUCION",JOptionPane.YES_OPTION);
+            if(a==JOptionPane.YES_OPTION){
+                new rpcGame();
             }else{
                 new entry();
             }
