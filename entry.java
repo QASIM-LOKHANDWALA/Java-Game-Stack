@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class entry extends JFrame implements ActionListener{
     
+    static boolean isSubscribed = false;
     ImageIcon background = new ImageIcon("game stack.png");
     ImageIcon buttonBackground = new ImageIcon("buttomBack.png");
     JButton ttt = new JButton("TIC TAC TOE");
@@ -68,12 +69,16 @@ public class entry extends JFrame implements ActionListener{
             }
             
         }else if(e.getSource()==snake){
-            String mes = "1.IT IS A SINGLE PLAYER GAME\n2.USE ARROW KEYS TO TURN\nDO YOU WNAT TO CONTINUE?";
-            int a = JOptionPane.showConfirmDialog(this,mes,"INSTRUCION",JOptionPane.YES_OPTION);
-            if(a==JOptionPane.YES_OPTION){
-                new Game();
+            if(isSubscribed){
+                String mes = "1.IT IS A SINGLE PLAYER GAME\n2.USE ARROW KEYS TO TURN\nDO YOU WNAT TO CONTINUE?";
+                int a = JOptionPane.showConfirmDialog(this,mes,"INSTRUCION",JOptionPane.YES_OPTION);
+                if(a==JOptionPane.YES_OPTION){
+                    new Game();
+                }else{
+                    return;
+                }
             }else{
-                return;
+                new premium();
             }
         }else if(e.getSource()==rpc){
             String mes = "1.IT IS A SINGLE PLAYER GAME\n2.FIRST TO SCORE 5 POINTS WINS\nDO YOU WNAT TO CONTINUE?";
