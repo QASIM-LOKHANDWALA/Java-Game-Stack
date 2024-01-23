@@ -67,6 +67,7 @@ public class premium extends JFrame implements ActionListener{
         this.add(pay);
         this.add(panel);
         this.add(label);
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
     }

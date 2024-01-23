@@ -84,6 +84,7 @@ public class rpcGame extends JFrame implements ActionListener{
         this.add(computer);
         this.add(scoreLabel);
         this.add(back);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setResizable(false);
     }

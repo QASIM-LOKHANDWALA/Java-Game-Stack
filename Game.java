@@ -13,6 +13,7 @@ public class Game extends JFrame{
         this.setResizable(false);
         this.add(panel);
         this.pack();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }

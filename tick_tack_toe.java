@@ -44,7 +44,8 @@ public class tick_tack_toe implements ActionListener{
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
-
+        
+        f.setLocationRelativeTo(null);
         f.setVisible(true);
 
         FirstTurn();
