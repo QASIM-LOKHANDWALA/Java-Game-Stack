@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.*;
 
@@ -9,6 +10,8 @@ public class premium extends JFrame implements ActionListener{
     String[] cardNo = {"4000123456789010","5412751234123456","1234567812345678","1111222233334444"};
     String[] cvvNo = {"555","123","987","111"};
     int noIdx;
+
+    Random random = new Random();
 
     JButton pay = new JButton("PAY  ₹50");
     JPanel panel = new JPanel();
@@ -80,9 +83,18 @@ public class premium extends JFrame implements ActionListener{
             boolean cCvv = checkCvv(enterdcvv);
             System.out.println(cCvv);
             if (cCvv && cNum) {
-                this.dispose();
-                JOptionPane.showMessageDialog(null,"PAYMENT SUCCESSFUL","SUCCESSFUL",JOptionPane.PLAIN_MESSAGE);
-                entry.isSubscribed = true;
+                int otp = 1000+random.nextInt(10000);
+                JOptionPane.showMessageDialog(null,"YOUR OTP IS : "+otp,"VERIFY",JOptionPane.PLAIN_MESSAGE);
+                String getOtp = JOptionPane.showInputDialog(null, "ENTER OTP");
+                if(otp == Integer.parseInt(getOtp)){
+                    this.dispose();
+                    JOptionPane.showMessageDialog(null,"PAYMENT SUCCESSFUL","SUCCESSFUL",JOptionPane.PLAIN_MESSAGE);
+                    entry.isSubscribed=true;
+                }else{
+                    this.dispose();
+                    JOptionPane.showMessageDialog(null,"INVALID OTP","ERROR",JOptionPane.ERROR_MESSAGE);
+                    new premium();
+                }
             }else{
                 this.dispose();
                 JOptionPane.showMessageDialog(null,"INVALID CARD NUMBER OR CVV","ERROR",JOptionPane.ERROR_MESSAGE);
