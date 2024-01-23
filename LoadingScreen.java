@@ -1,10 +1,13 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Random;
 
 import javax.swing.*;
 
 public class LoadingScreen extends JFrame{
     
+    Random random = new Random();
+
     ImageIcon backImage = new ImageIcon("WELCOME.png");
     JPanel panel = new JPanel();
     JLabel img = new JLabel();
@@ -35,11 +38,17 @@ public class LoadingScreen extends JFrame{
         fillBar();
     }
     public void fillBar(){
+        int slow = random.nextInt(60)+10;
+        int slownext = random.nextInt(20)+1;
         int x=0;
         while (x<=100) {
             bar.setValue(x);
             try {
-                Thread.sleep(50);
+                if(x==slow || x==(slow+slownext)){
+                    Thread.sleep(600);
+                }else{
+                    Thread.sleep(50);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

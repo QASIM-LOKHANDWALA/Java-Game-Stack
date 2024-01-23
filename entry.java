@@ -64,7 +64,7 @@ public class entry extends JFrame implements ActionListener{
             if(a==JOptionPane.YES_OPTION){
                 new tick_tack_toe();
             }else{
-                new entry();
+                return;
             }
             
         }else if(e.getSource()==snake){
@@ -73,7 +73,7 @@ public class entry extends JFrame implements ActionListener{
             if(a==JOptionPane.YES_OPTION){
                 new Game();
             }else{
-                new entry();
+                return;
             }
         }else if(e.getSource()==rpc){
             String mes = "1.IT IS A SINGLE PLAYER GAME\n2.FIRST TO SCORE 5 POINTS WINS\nDO YOU WNAT TO CONTINUE?";
@@ -81,7 +81,7 @@ public class entry extends JFrame implements ActionListener{
             if(a==JOptionPane.YES_OPTION){
                 new rpcGame();
             }else{
-                new entry();
+                return;
             }
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
