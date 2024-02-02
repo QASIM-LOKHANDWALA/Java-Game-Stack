@@ -19,8 +19,8 @@ public class tick_tack_toe implements ActionListener{
         buttonPanel.setBackground(new Color(150,150,150));
 
         text.setBackground(new Color(25,25,25));
-        text.setForeground(Color.GREEN);
-        text.setFont(new Font("",Font.BOLD,60));
+        text.setForeground(Color.ORANGE);
+        text.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,60));
         text.setHorizontalAlignment(JLabel.CENTER);
         text.setText("Tic-Tac-Toe");
         text.setOpaque(true);
@@ -40,7 +40,7 @@ public class tick_tack_toe implements ActionListener{
             buttons[i] = new JButton();
             buttons[i].setBackground(Color.darkGray);
             buttonPanel.add(buttons[i]);
-            buttons[i].setFont(new Font("Comic",Font.BOLD,120));
+            buttons[i].setFont(new Font("Forte",Font.BOLD,120));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }

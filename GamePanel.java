@@ -48,10 +48,6 @@ public class GamePanel extends JPanel implements ActionListener{
     }
     public void draw(Graphics g){
         if(run){
-            // for(int i=0 ; i<(SCREEN_HEIGHT/UNIT_SIZE) ; i++){
-            //     g.drawLine(i*UNIT_SIZE, 0, i*UNIT_SIZE, SCREEN_HEIGHT);
-            //     g.drawLine(0, i*UNIT_SIZE, SCREEN_WIDTH, i*UNIT_SIZE);
-            // }
             g.setColor(Color.RED);
             g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
 
@@ -61,13 +57,12 @@ public class GamePanel extends JPanel implements ActionListener{
                     g.fillRect(X[i], Y[i], UNIT_SIZE, UNIT_SIZE);
                 }else{
                     g.setColor(new Color(45,180,0));
-                    //g.setColor(new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255)));
                     g.fillRect(X[i], Y[i], UNIT_SIZE, UNIT_SIZE);
                 }
             }
 
-            g.setColor(Color.CYAN);
-            g.setFont(new Font("Ink Free",Font.BOLD,40)); //   
+            g.setColor(Color.ORANGE);
+            g.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,40)); //   
             FontMetrics m = getFontMetrics(g.getFont()); 
             g.drawString("Score: "+applesEaten , (SCREEN_WIDTH - m.stringWidth("Score: "+applesEaten))/2 , g.getFont().getSize() );
 
@@ -130,13 +125,13 @@ public class GamePanel extends JPanel implements ActionListener{
         }
     }
     public void gameOver(Graphics g){
-        g.setColor(Color.CYAN);
-        g.setFont(new Font("Ink Free",Font.BOLD,75)); //   
+        g.setColor(Color.ORANGE);
+        g.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,75)); //   
         FontMetrics m = getFontMetrics(g.getFont()); 
         g.drawString("Game Over" , (SCREEN_WIDTH - m.stringWidth("Game Over"))/2 , SCREEN_HEIGHT/2 );
         
-        g.setColor(Color.CYAN);
-        g.setFont(new Font("Ink Free",Font.BOLD,40)); //   
+        g.setColor(Color.ORANGE);
+        g.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,40)); //   
         FontMetrics m1 = getFontMetrics(g.getFont()); 
         g.drawString("Score: "+applesEaten , (SCREEN_WIDTH - m1.stringWidth("Score: "+applesEaten))/2 , g.getFont().getSize() );
     }
