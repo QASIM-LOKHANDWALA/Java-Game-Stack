@@ -40,7 +40,7 @@ public class tick_tack_toe implements ActionListener{
             buttons[i] = new JButton();
             buttons[i].setBackground(Color.darkGray);
             buttonPanel.add(buttons[i]);
-            buttons[i].setFont(new Font("Forte",Font.BOLD,120));
+            buttons[i].setFont(new Font("Arial",Font.BOLD,120));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
@@ -135,16 +135,16 @@ public class tick_tack_toe implements ActionListener{
 
     }
     private void xWins(int a, int b, int c){
-        buttons[a].setBackground(Color.green);
-        buttons[b].setBackground(Color.green);
-        buttons[c].setBackground(Color.green);
+        buttons[a].setBackground(new Color(9,233,74));
+        buttons[b].setBackground(new Color(9,233,74));
+        buttons[c].setBackground(new Color(9,233,74));
         for(int i=0 ; i<9 ; i++) buttons[i].setEnabled(false);
         text.setText("X WINS");
     }
     private void oWins(int a, int b, int c){
-        buttons[a].setBackground(Color.green);
-        buttons[b].setBackground(Color.green);
-        buttons[c].setBackground(Color.green);
+        buttons[a].setBackground(new Color(9,233,74));
+        buttons[b].setBackground(new Color(9,233,74));
+        buttons[c].setBackground(new Color(9,233,74));
         for(int i=0 ; i<9 ; i++) buttons[i].setEnabled(false);
         text.setText("O WINS");
     }
@@ -156,7 +156,7 @@ public class tick_tack_toe implements ActionListener{
             if(e.getSource()==buttons[i]){
                 if(p1_turn){
                     if(buttons[i].getText()==""){
-                        buttons[i].setForeground(new Color(255,0,0));
+                        buttons[i].setForeground(new Color(68,255,209));
                         buttons[i].setText("X");
                         p1_turn = false;
                         text.setText("O Turn");
@@ -164,7 +164,7 @@ public class tick_tack_toe implements ActionListener{
                     }
                 }else{
                     if(buttons[i].getText()==""){
-                        buttons[i].setForeground(new Color(0,255,0));
+                        buttons[i].setForeground(new Color(250,23,11));
                         buttons[i].setText("O");
                         p1_turn = true;
                         text.setText("X Turn");

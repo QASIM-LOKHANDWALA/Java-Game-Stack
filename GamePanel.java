@@ -3,8 +3,13 @@ import java.awt.event.*;
 import java.util.Random;
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class GamePanel extends JPanel implements ActionListener{
+
+    JPanel displayScore = new JPanel();
+    JLabel scores = new JLabel();
+    Border border = BorderFactory.createLineBorder(Color.RED , 2);
 
     static final int SCREEN_WIDTH = 600;
     static final int SCREEN_HEIGHT = 600;
@@ -25,12 +30,25 @@ public class GamePanel extends JPanel implements ActionListener{
     Random random;
 
     GamePanel(){
+        scores.setBackground(Color.ORANGE);
+        scores.setForeground(Color.BLACK);
+        scores.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,40));
+        scores.setHorizontalAlignment(SwingConstants.CENTER);
+        scores.setVerticalAlignment(SwingConstants.CENTER);
+        scores.setText("Score: "+applesEaten);
+
+        displayScore.setLayout(new BorderLayout());
+        displayScore.setBounds(0,600,SCREEN_HEIGHT,100);
+        displayScore.setBackground(Color.ORANGE);
+        displayScore.add(scores,BorderLayout.CENTER);
 
         random = new Random();
-        this.setPreferredSize(new Dimension(SCREEN_WIDTH,SCREEN_HEIGHT));
+        this.setLayout(null);
+        this.setPreferredSize(new Dimension(SCREEN_WIDTH,700));
         this.setBackground(Color.BLACK);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
+        this.add(displayScore);
 
         startGame();
 
@@ -61,11 +79,7 @@ public class GamePanel extends JPanel implements ActionListener{
                 }
             }
 
-            g.setColor(Color.ORANGE);
-            g.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,40)); //   
-            FontMetrics m = getFontMetrics(g.getFont()); 
-            g.drawString("Score: "+applesEaten , (SCREEN_WIDTH - m.stringWidth("Score: "+applesEaten))/2 , g.getFont().getSize() );
-
+            scores.setText("Score: "+applesEaten);
         }else{
             gameOver(g);
         }
@@ -129,11 +143,7 @@ public class GamePanel extends JPanel implements ActionListener{
         g.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,75)); //   
         FontMetrics m = getFontMetrics(g.getFont()); 
         g.drawString("Game Over" , (SCREEN_WIDTH - m.stringWidth("Game Over"))/2 , SCREEN_HEIGHT/2 );
-        
-        g.setColor(Color.ORANGE);
-        g.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,40)); //   
-        FontMetrics m1 = getFontMetrics(g.getFont()); 
-        g.drawString("Score: "+applesEaten , (SCREEN_WIDTH - m1.stringWidth("Score: "+applesEaten))/2 , g.getFont().getSize() );
+        scores.setText("Score: "+applesEaten);
     }
 
     public class MyKeyAdapter extends KeyAdapter{
