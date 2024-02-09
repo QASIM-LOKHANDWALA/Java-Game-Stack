@@ -8,7 +8,7 @@ public class LoadingScreen extends JFrame{
     
     Random random = new Random();
 
-    ImageIcon backImage = new ImageIcon("WELCOME.png");
+    ImageIcon backImage = new ImageIcon("images/WELCOME.png");
     JPanel panel = new JPanel();
     JLabel img = new JLabel();
     JProgressBar bar = new JProgressBar();

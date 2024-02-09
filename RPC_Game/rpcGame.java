@@ -26,9 +26,9 @@ public class rpcGame extends JFrame implements ActionListener{
     
     Border border = BorderFactory.createLineBorder(Color.BLACK);
 
-    ImageIcon rockIcon = new ImageIcon("rock.png");
-    ImageIcon paperIcon = new ImageIcon("paper.png");
-    ImageIcon scissorIcon = new ImageIcon("scissor.png");
+    ImageIcon rockIcon = new ImageIcon("images/rock.png");
+    ImageIcon paperIcon = new ImageIcon("images/paper.png");
+    ImageIcon scissorIcon = new ImageIcon("images/scissor.png");
 
     JLabel back = new JLabel();
     
@@ -56,6 +56,8 @@ public class rpcGame extends JFrame implements ActionListener{
         rock_button.addActionListener(this);
         rock_button.setFocusable(false);
         rock_button.setOpaque(true);
+        rock_button.setBackground(Color.BLACK);
+        rock_button.setForeground(Color.WHITE);
 
         paper_button.setBounds(40, 135, 175, 100);
         paper_button.setIcon(paperIcon);
@@ -65,6 +67,8 @@ public class rpcGame extends JFrame implements ActionListener{
         paper_button.addActionListener(this);
         paper_button.setFocusable(false);
         paper_button.setOpaque(true);
+        paper_button.setBackground(Color.BLACK);
+        paper_button.setForeground(Color.WHITE);
         
         scissor_button.setBounds(40, 245, 175, 100);
         scissor_button.setIcon(scissorIcon);
@@ -74,6 +78,8 @@ public class rpcGame extends JFrame implements ActionListener{
         scissor_button.addActionListener(this);
         scissor_button.setFocusable(false);
         scissor_button.setOpaque(true);
+        scissor_button.setBackground(Color.BLACK);
+        scissor_button.setForeground(Color.WHITE);
 
         this.setTitle("Rock Paper Scissors");
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -133,17 +139,44 @@ public class rpcGame extends JFrame implements ActionListener{
         computer.setOpaque(true);
         checkWin();
     }
+    public void resetColors(String button){
+        if(button.equals("rock")){
+            paper_button.setBackground(Color.BLACK);
+            paper_button.setForeground(Color.WHITE);
+            scissor_button.setBackground(Color.BLACK);
+            scissor_button.setForeground(Color.WHITE);
+        }else if(button.equals("paper")){
+            rock_button.setBackground(Color.BLACK);
+            rock_button.setForeground(Color.WHITE);
+            scissor_button.setBackground(Color.BLACK);
+            scissor_button.setForeground(Color.WHITE);
+        }else if(button.equals("scissor")){
+            paper_button.setBackground(Color.BLACK);
+            paper_button.setForeground(Color.WHITE);
+            rock_button.setBackground(Color.BLACK);
+            rock_button.setForeground(Color.WHITE);
+        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
         if(e.getSource()==rock_button){
+            resetColors("rock");
+            rock_button.setBackground(Color.GREEN);
+            rock_button.setForeground(Color.BLACK);
             playerChoice = choice[0];
             computerChoice();
         }else if(e.getSource()==paper_button){
+            resetColors("paper");
+            paper_button.setBackground(Color.GREEN);
+            paper_button.setForeground(Color.BLACK);
             playerChoice = choice[1];
             computerChoice();
         }else if(e.getSource()==scissor_button){
+            resetColors("scissor");
+            scissor_button.setBackground(Color.GREEN);
+            scissor_button.setForeground(Color.BLACK);
             playerChoice = choice[2];
             computerChoice();
         }

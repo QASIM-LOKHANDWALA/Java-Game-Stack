@@ -4,9 +4,11 @@ import javax.swing.*;
 
 public class entry extends JFrame implements ActionListener{
     
+    static String redColor = " \u001b[31m";
+    static String resetColor = "\u001b[37m";
     static boolean isSubscribed = false;
-    ImageIcon background = new ImageIcon("game stack.png");
-    ImageIcon buttonBackground = new ImageIcon("buttomBack.png");
+    ImageIcon background = new ImageIcon("images/game stack.png");
+    ImageIcon buttonBackground = new ImageIcon("images/buttomBack.png");
     JButton ttt = new JButton("TIC TAC TOE");
     JButton snake = new JButton("SNAKE GAME");
     JButton rpc = new JButton("ROCK PAPER SCISSOR");
@@ -60,7 +62,7 @@ public class entry extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ttt){
-            String mes = "1.IT IS A MULTIPLAYER GAME\n2.FIRST TO COMPLETE A LINE WINS\nDO YOU WNAT TO CONTINUE?";
+            String mes = "1.IT IS A MULTIPLAYER GAME\n2.THE GAME ENDS WHEN EITHER ONE\nOF THE PLAYER FORMS A HORIZONTAL,\nVERTICAL,OR DIAGONAL LINE \nOF THEIR SYMBOL\nOR WHEN THE BOARDIS FULL AND\nTHERE IS NO WINNER\nDO YOU WNAT TO CONTINUE?";
             int a = JOptionPane.showConfirmDialog(this,mes,"INSTRUCION",JOptionPane.YES_OPTION);
             if(a==JOptionPane.YES_OPTION){
                 new tick_tack_toe();
@@ -70,7 +72,7 @@ public class entry extends JFrame implements ActionListener{
             
         }else if(e.getSource()==snake){
             if(isSubscribed){
-                String mes = "1.IT IS A SINGLE PLAYER GAME\n2.USE ARROW KEYS TO TURN\nDO YOU WNAT TO CONTINUE?";
+                String mes = "1.IT IS A SINGLE PLAYER GAME\n2.USE ARROW KEYS TO TURN\n3.IF THE SNAKE TOUCHES ANY EDGE\nOR IT'S OWN BODY GAME ENDS\nDO YOU WNAT TO CONTINUE?";
                 int a = JOptionPane.showConfirmDialog(this,mes,"INSTRUCION",JOptionPane.YES_OPTION);
                 if(a==JOptionPane.YES_OPTION){
                     new Game();
