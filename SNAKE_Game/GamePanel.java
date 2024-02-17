@@ -7,6 +7,7 @@ import javax.swing.border.Border;
 
 public class GamePanel extends JPanel implements ActionListener{
 
+    JLabel gameOverLabel;
     JPanel displayScore = new JPanel();
     JLabel scores = new JLabel();
     Border border = BorderFactory.createLineBorder(Color.RED , 2);
@@ -15,7 +16,7 @@ public class GamePanel extends JPanel implements ActionListener{
     static final int SCREEN_HEIGHT = 600;
     static final int UNIT_SIZE = 25;
     static final int GAME_UNITS = (SCREEN_WIDTH*SCREEN_HEIGHT)/UNIT_SIZE;
-    static final int DELAY = 85;
+    static final int DELAY = 75;
     static int changeColor = 255;
 
     final int[] X = new int[GAME_UNITS];
@@ -31,6 +32,12 @@ public class GamePanel extends JPanel implements ActionListener{
     Random random;
 
     GamePanel(){
+        gameOverLabel = new JLabel("Game Over", SwingConstants.CENTER);
+        gameOverLabel.setFont(new Font("Bahnschrift SemiBold SemiConden", Font.BOLD, 75));
+        gameOverLabel.setForeground(Color.ORANGE);
+        gameOverLabel.setSize(new Dimension(SCREEN_WIDTH,SCREEN_HEIGHT));
+        gameOverLabel.setVisible(true);
+
         scores.setBackground(Color.ORANGE);
         scores.setForeground(Color.BLACK);
         scores.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,40));
@@ -144,10 +151,7 @@ public class GamePanel extends JPanel implements ActionListener{
         }
     }
     public void gameOver(Graphics g){
-        g.setColor(Color.ORANGE);
-        g.setFont(new Font("Bahnschrift SemiBold SemiConden",Font.BOLD,75)); //   
-        FontMetrics m = getFontMetrics(g.getFont()); 
-        g.drawString("Game Over" , (SCREEN_WIDTH - m.stringWidth("Game Over"))/2 , SCREEN_HEIGHT/2 );
+        this.add(gameOverLabel);
         scores.setText("Score: "+applesEaten);
     }
 
